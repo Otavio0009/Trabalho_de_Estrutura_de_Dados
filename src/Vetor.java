@@ -34,13 +34,14 @@ public class Vetor {
         return false;
     }
 
-    public void adicionar(String elemento) {
+    public boolean adicionar(String elemento) {
         if (this.tamanho < this.elementos.length) {
             this.elementos[this.tamanho] = elemento;
             this.tamanho++;
-        } else {
-            throw new RuntimeException("Vetor cheio!");
+
+            return true;
         }
+        return false;
     }
 
     public int tamanho() {
@@ -84,7 +85,7 @@ public class Vetor {
         int contador = 0;
 
         for (int i = 0; i < this.tamanho; i++) {
-            if (this.elementos[i] == elemento) {
+            if (this.elementos[i].equals(elemento)) {
                 contador++;
             }
         }
@@ -93,7 +94,7 @@ public class Vetor {
 
     public boolean substituir(String antigo, String novo){
         for(int i = 0; i < this.tamanho; i++){
-            if (this.elementos[i] == antigo && antigo != novo){
+            if (this.elementos[i].equals(antigo) && antigo != novo){
 
                 this.elementos[i] = novo;
                 return true;
@@ -101,4 +102,78 @@ public class Vetor {
         }
         return false;
     }
+
+    public void remover(int posicao) {
+        if (!(posicao >= 0 && posicao < this.tamanho)) {
+            throw new IllegalArgumentException("Posição inválida");
+        }
+
+        for (int i = posicao; i < this.tamanho -1; i++) {
+            this.elementos[i] = this.elementos[i+1];
+        }
+
+        this.elementos[this.tamanho - 1] = null;
+        this.tamanho--;
+    }
+
+    public int busca(String elemento) {
+        for (int i = 0; i < this.tamanho; i++) {
+            if (this.elementos[i].equals(elemento)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public boolean remover(String elemento) {
+        int posicao = this.busca(elemento);
+
+        if (posicao == -1) {
+            return false;
+        }
+
+        this.remover(posicao);
+        return true;
+    }
+
+    public int indiceUltimo(String elemento) {
+        for (int i = this.tamanho - 1; i >= 0; i--) {
+
+            if (this.elementos[i].equals(elemento)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public void removerTodos(String elemento) {
+        while(this.remover(elemento)){}
+    }
+
+    public boolean adicionaraSeNaoExistente(String elemento) {
+        if (this.contem(elemento)) {
+            return false;
+        }
+        return this.adicionar(elemento);
+    }
+
+    public boolean inserirDepois(String referencia,  String novoElemento) {
+        int posicao = this.busca(referencia);
+
+        if (posicao == -1 || this.tamanho >= this.elementos.length) {
+            return false;
+        }
+
+        int indiceInsercao = posicao + 1;
+
+        for (int i = this.tamanho - 1; i >= indiceInsercao; i--) {
+            this.elementos[i+1] =  this.elementos[i];
+        }
+
+        this.elementos[indiceInsercao] = novoElemento;
+        this.tamanho++;
+
+        return true;
+    }
+
 }
