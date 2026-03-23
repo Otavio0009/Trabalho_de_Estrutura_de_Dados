@@ -1,3 +1,5 @@
+package PrimeiroTrabalho_Vetor;
+
 public class Teste01 {
     public static void main(String[] args) {
         Vetor vetor = new Vetor(3);
@@ -7,7 +9,7 @@ public class Teste01 {
         vetor.adicionar("C");
 
         System.out.println("Tamanho: " + vetor.tamanho());
-        System.out.println("Vetor: " + vetor);
+        System.out.println("PrimeiroTrabalho_Vetor.Vetor: " + vetor);
         System.out.println("Impreção um por um linha");
         vetor.imprimeUmPorLinha();
     }

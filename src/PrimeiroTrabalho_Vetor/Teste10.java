@@ -1,3 +1,5 @@
+package PrimeiroTrabalho_Vetor;
+
 public class Teste10 {
     public static void main(String[] args) {
         Vetor vetor = new Vetor(10);

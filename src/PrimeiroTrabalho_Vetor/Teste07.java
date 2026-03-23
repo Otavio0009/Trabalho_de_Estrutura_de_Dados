@@ -1,3 +1,5 @@
+package PrimeiroTrabalho_Vetor;
+
 public class Teste07 {
     public static void main(String[] args) {
         Vetor vetor = new Vetor(10);
@@ -8,7 +10,7 @@ public class Teste07 {
         vetor.adicionar("D"); // índice 3
         vetor.adicionar("E"); // índice 4
 
-        System.out.println("Vetor inicial: " + vetor);
+        System.out.println("PrimeiroTrabalho_Vetor.Vetor inicial: " + vetor);
 
         vetor.remover(0);
         System.out.println("Após remover o primeiro (índice 0): " + vetor + " | Tamanho: " + vetor.tamanho());

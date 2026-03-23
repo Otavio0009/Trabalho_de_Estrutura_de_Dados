@@ -1,4 +1,6 @@
-public class Teste03 {
+package PrimeiroTrabalho_Vetor;
+
+public class Teste04 {
     public static void main(String[] args) throws Exception {
         Vetor vetor= new Vetor(10);
 
@@ -15,8 +17,12 @@ public class Teste03 {
         }
 
         System.out.println(vetor.toString());
-        System.out.println(vetor.buscar(-1));
+        System.out.println(vetor.buscar(1));
 
+        vetor.adicionar("E");
+        System.out.println(vetor.toString());
+
+        vetor.limpar();
+        System.out.println(vetor.toString()); // Saída: 2
     }
 }
-
