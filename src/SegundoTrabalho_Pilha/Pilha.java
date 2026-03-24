@@ -70,9 +70,8 @@ public class Pilha<T> {
 
     }
 
-    public boolean estaVazia() {
-        return this.tamanho == 0;
-    }
+    public boolean estaVazia() {return this.tamanho == 0;}
+    public boolean temElemsnto() {return !this.estaVazia();}
 
     public String inverterPalavra(String palavra) {
 
@@ -83,7 +82,7 @@ public class Pilha<T> {
         }
 
         StringBuilder invertida = new StringBuilder();
-        while (!pilha.estaVazia()) {
+        while (pilha.temElemsnto()) {
             invertida.append(pilha.desempilhar());
         }
 
@@ -91,7 +90,7 @@ public class Pilha<T> {
     }
 
     public String palindromo(String palavra) {
-        String palavraLimpa = palavra.replace(" ", "").toLowerCase();
+        String palavraLimpa = palavra.replace(" ", "");
 
         String palavraInvertida = inverterPalavra(palavraLimpa);
 
@@ -116,10 +115,10 @@ public class Pilha<T> {
 
         StringBuilder fraseInvertida = new StringBuilder();
 
-        while (!pilhaPalavras.estaVazia()) {
+        while (pilhaPalavras.temElemsnto()) {
             fraseInvertida.append(pilhaPalavras.desempilhar());
 
-            if (!pilhaPalavras.estaVazia()) {
+            if (pilhaPalavras.temElemsnto()) {
                 fraseInvertida.append(" ");
             }
         }
