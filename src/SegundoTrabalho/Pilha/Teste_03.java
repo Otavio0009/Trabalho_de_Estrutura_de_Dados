@@ -1,4 +1,4 @@
-package SegundoTrabalho_Pilha;
+package SegundoTrabalho.Pilha;
 
 public class Teste_03 {
     public static void main(String[] args) {

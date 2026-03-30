@@ -1,4 +1,4 @@
-package SegundoTrabalho_Pilha;
+package SegundoTrabalho.Pilha;
 
 public class Pilha<T> {
     private T[] elementos;
